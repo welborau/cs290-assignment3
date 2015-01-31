@@ -1,3 +1,6 @@
+// Author:   Austin Welborn
+// Class:    CS290
+// Date:     1/26/2015
 /**
 * the \@param notation indicates an input paramater for a function. For example
 * @param {string} foobar - indicates the function should accept a string
@@ -13,7 +16,9 @@
 */
 
 //your code here
-
+function uselessFunction() {
+	return null;
+}
 //end your code
 
 var bar = 'not a function';
@@ -30,7 +35,17 @@ var barType = typeof bar;
 */
 
 //your code here
-
+bar = function(doubleArray) {
+	for (var i = 0; i < doubleArray.length; i++) 	// loop through all elements of the array
+	{
+		if (isNaN(doubleArray[i]))					// if element is NaN (undefined) return false
+		{
+			return false;
+		}
+		doubleArray[i] *= 2;						// else multiply that element by 2
+	}
+	return true;
+}
 //end your code
 
 /**
@@ -66,5 +81,23 @@ function GitLog(hash, date, message) {
 */
 
 //your code here
+function parseGit(logArray) {
+	var hash, message;
+	var array = [];
+	var data = [];
+	for (var i = 0; i < logArray.length; i++)			// loop through all elements of logArray
+	{
+		data = logArray[i].split(" ");					// break up the strings to elements between spaces
+		hash = data[0];									// hash is first portion of the data
+		data.splice(0,1);								// remove the hash portion 
+		var data2 = data.join(" ");						// create a new string separated by spaces
+		data2 = data2.split("\"");						// find the " " that spans the message
+		data2.pop();									// removes the last "" in the array
+		var date = new Date(data2[0]);					// create an new Date object and assign it first element
+		message = data2[1];								// assign 2nd element for message
 
-//end your code
+		var myLog = new GitLog(hash, date, message);	// create instances of GitLog with hash, date, message
+		array.push(myLog);								// push the instances into the array
+	}
+	return array;
+}//end your code

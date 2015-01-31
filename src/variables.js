@@ -1,3 +1,6 @@
+//Author:   Austin Welborn
+//Class:    CS390
+//Date:     1/26/2015 
 /*
 Input:
 a: a whole, positive number
@@ -14,7 +17,9 @@ function variableModification(a) {
   var asString;
   var yourNumberIs;
   //your code here
-
+  plus5 = a + 5;              // add 5 to the parameter a
+  asString = a.toString();    // convert a to a string
+  yourNumberIs = "Your Number is " + asString;    
   //end your code
   return [plus5, asString, yourNumberIs, a];
 }
@@ -29,7 +34,14 @@ false otherwise
 */
 function isString(b) {
   //your code here
-  return undefined;
+  if(typeof b === "string")     // if the type of var b is string
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
   //end your code
 }
 
@@ -42,6 +54,13 @@ return true if c is null, false otherwise
 */
 function isNull(c) {
   //your code here
-  return undefined;
+  if(c === null)          // if c is null return true, else false
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
   //end your code
 }

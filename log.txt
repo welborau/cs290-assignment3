@@ -1,1 +1,13 @@
 You log goes in this  file.
+
+Start: Mon Jan 26 12:46:16 2015 -0700
+End:   Mon Jan 26 03:05:27 2015 -0700
+Tasks:  Cloned the repository from wolfordj, copied the contents into my cs290-assignment3 file, began to work on log.  Then started working on variables.js and functions.js, finishing isString function and isNull functions, and uselessFunction.
+
+Start: Mon Jan 26 8:19:33 2015 -0700
+End:
+Tasks: Worked more on variables.js and functions.js, modifying and fixing variableModification function, and got it to work, fixed bar anonymous function.  Attempted returnObjectLiteral and completed it.  Started working on objects.js and struggled to understand how the syntax for methods with functions worked.  Was really confused with using this.methodname = function() {}, didn't realize that function() was ACTUALLY supposed to be the word "function" not the constructor function name.  That really confused me for a while, and once I finally realized it was function, then the syntax finally started to work correctly.
+
+Start: Thur Jan 29 11:47:59 2015 -0700
+End:   Thur Jan 29 02:53:22 2015 -0700
+Tasks: Worked on functions.js and objects.js, trying to finish up ParseGit and myLog functions, still struggling to understand how to use methods and objects correctly, but was able to progress some in both programs.

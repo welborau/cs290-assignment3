@@ -1,3 +1,6 @@
+// Author:      Austin Welborn
+// Class:       CS290
+// Date:        1/26/2015
 /**
 * Create an object literal with the following key value pairs:
 * type: {string} 'Goldfish'
@@ -10,7 +13,9 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+  //Modify ONLY this line
+    var object = {type:"Goldfish", brand:"Pepperidge Farm", flavor:"Cheddar", count: 2000};
+	return object;
   //end your code
 }
 
@@ -38,7 +43,69 @@ function returnObjectLiteral() {
 */
 
 //your code here
+function MessageLog(user) {
+	this.name = user;
 
+	var sentCounter = 0, receivedCounter = 0;		// counters for sent and received 
+	this.SentMessage = [];							// array of sent messages
+	this.Receivedmessage = [];						// array of received messages
+	
+	// method for logMessage
+	this.logMessage = function(messageText, direction) {
+
+		if (direction === 0)						// if direction is 0
+		{
+			sentCounter++;							// increment counter
+			
+			if(this.SentMessage.length <= 5)		// if array has less or equal to 5 elements
+			{
+				this.SentMessage.unshift(messageText);	// push the string to the 0th element
+			}
+			else
+			{
+				this.SentMessage.pop();				// else pop out the last element, then push into the 0th element
+				this.SentMessage.unshift(messageText);
+			}
+		}
+		else if (direction === 1)					// if direction is 1
+		{
+			receivedCounter++;						// increment counter
+			
+			if(this.Receivedmessage.length <= 5)	// if array has less or equal to 5 elements
+			{
+				this.Receivedmessage.unshift(messageText); // push the string to the 0th element
+			}
+			else
+			{
+				this.Receivedmessage.pop();					// else pop the last element, then push into the 0th element
+				this.Receivedmessage.unshift(messageText);
+			}
+			
+		}
+	}
+
+	// method for getSentMessage
+	this.getSentMessage = function(n) {
+		try {
+			if (n > 4) throw "is too high";		// if n is less than 0 or greater than 4
+			if (n < 0) throw "is too low";
+		}
+		catch(err) {							// throw error
+			console.log("Number " + err);
+		}
+		return this.SentMessage[n];				// returns the sent message at nth position
+	}
+
+	// method for totalSent
+	this.totalSent = function() {
+		return sentCounter;
+	}
+
+	// method for totalReceived
+	this.totalReceived = function() {
+		return receivedCounter;
+	}
+}
 //end your code
 
 /**
@@ -47,7 +114,10 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
-
+ // prototype method for lastReceivedMessage
+ MessageLog.prototype.lastReceivedMessage = function() {
+ 	return this.Receivedmessage[0];
+ }
 //end your code
 
 /**
@@ -57,5 +127,9 @@ function returnObjectLiteral() {
 */
 
 //your code here
+var myLog = new MessageLog("BlackHatGuy");
+myLog.logMessage("foo", 1);
+myLog.logMessage("bar", 1);
+myLog.logMessage("baz", 1);
 
 //end your code
